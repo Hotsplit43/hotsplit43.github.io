@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jiji's Organic Hair Oil</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://checkout.flutterwave.com/v3.js"></script>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Jiji's Organic Hair Oil Logo" class="logo">
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Welcome to Jiji's Organic Hair Oil</h1>
+    <p>Natural. Nourishing. Trusted by hundreds.</p>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>Jiji's Organic Hair Oil is crafted with love and nature — no chemicals, no shortcuts. Our oils are handmade using the finest organic ingredients to nourish, protect, and grow your hair the healthy way.</p>
+  </section>
+
+  <section id="products" class="products">
+    <h2>Our Products</h2>
+    <div class="product">
+      <img src="product1.jpg" alt="Organic Hair Oil">
+      <h3>Original Organic Hair Oil</h3>
+      <p>Moisturizes scalp, stimulates growth, prevents breakage.</p>
+      <strong>UGX 25,000</strong>
+      <br>
+      <button onclick="makePayment()">Buy Now</button>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>📞 WhatsApp: <a href="https://wa.me/256000000000">+256 000 000 000</a></p>
+    <p>📸 Instagram: <a href="https://instagram.com/jijisorganichair">@jijisorganichair</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Jiji's Organic Hair Oil. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function makePayment() {
+      FlutterwaveCheckout({
+        public_key: "FLWPUBK_TEST-xxxxxxxxxxxxxxxxxxxxxxx",
+        tx_ref: "jiji-oil-" + Date.now(),
+        amount: 25000,
+        currency: "UGX",
+        payment_options: "mobilemoneyuganda",
+        customer: {
+          email: "customer@email.com",
+          phone_number: "256000000000",
+          name: "Customer Name",
+        },
+        customizations: {
+          title: "Jiji's Organic Hair Oil",
+          description: "Purchase of Original Organic Hair Oil",
+          logo: "logo.png",
+        },
+        callback: function (data) {
+          alert("Payment complete! Tx ID: " + data.transaction_id);
+        },
+        onclose: function() {
+          console.log("Payment closed");
+        },
+      });
+    }
+  </script>
+</body>
+</html>
