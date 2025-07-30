@@ -1,237 +1,124 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jiji’s Organics | Natural Hair Oil Uganda</title>
+  <meta name="description" content="100% natural hair oils handmade in Uganda for strong, healthy African hair.">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://checkout.flutterwave.com/v3.js"></script>
+</head>
+<body>
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f4f1ec;
-  color: #333;
-  line-height: 1.6;
-}
+  <header>
+    <img src="logo.png" alt="Jiji's Organic Hair Oil Logo" class="logo">
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-/* --- HEADER --- */
-header {
-  background-color: white;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #e0e0e0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+  <section id="home" class="hero">
+    <h1>Glow Naturally with Jiji's Organics</h1>
+    <p>Pure, handmade hair oils crafted for strong, healthy African hair.</p>
+    <a href="#products" class="cta-button">Shop Now</a>
+  </section>
 
-.logo {
-  height: 60px;
-}
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>Jiji's Organics is crafted with love and nature — no chemicals, no shortcuts. Our oils are handmade using the finest organic ingredients to nourish, protect, and grow your hair the healthy way.</p>
+  </section>
 
-nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #0b8f5d;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
+  <section id="products" class="products">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="IMG-20250730-WA0001.jpg" alt="Hair Oil Front View">
+        <h3>Organic Hair Oil (Front View)</h3>
+        <p>Deeply nourishes and strengthens hair from root to tip.</p>
+        <strong>UGX 25,000</strong><br>
+        <button onclick="makePayment()">Buy Now</button>
+      </div>
+      <div class="product">
+        <img src="IMG-20250730-WA0002.jpg" alt="Hair Oil Side View">
+        <h3>Organic Hair Oil (Side View)</h3>
+        <p>Organic formulation for a naturally glossy finish.</p>
+        <strong>UGX 25,000</strong><br>
+        <button onclick="makePayment()">Buy Now</button>
+      </div>
+      <div class="product">
+        <img src="IMG-20250730-WA0005.jpg" alt="Hair Oil Bundle">
+        <h3>Organic Hair Oil (Bundle)</h3>
+        <p>Perfect gift pack — healthy hair in every bottle.</p>
+        <strong>UGX 45,000</strong><br>
+        <button onclick="makePayment()">Buy Now</button>
+      </div>
+      <div class="product">
+        <img src="IMG-20250730-WA0006.jpg" alt="Hair Oil Label Shot">
+        <h3>Organic Hair Oil (Label View)</h3>
+        <p>100% natural — clearly labeled for your peace of mind.</p>
+        <strong>UGX 25,000</strong><br>
+        <button onclick="makePayment()">Buy Now</button>
+      </div>
+    </div>
+  </section>
 
-nav a:hover {
-  color: #097a4e;
-}
+  <section class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial">
+      <p>"My hair stopped breaking and started shining in just two weeks!"</p>
+      <strong>— Sarah K., Kampala</strong>
+    </div>
+    <div class="testimonial">
+      <p>"Smells amazing. I love that it's all natural."</p>
+      <strong>— Joy N., Mbarara</strong>
+    </div>
+  </section>
 
-/* --- HERO SECTION --- */
-.hero {
-  background-color: #f4f1ec; /* soft cream background */
-  color: #0b8f5d;            /* natural dark green text */
-  text-align: center;
-  padding: 100px 20px;
-}
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>📞 WhatsApp: <a href="https://wa.me/256791635064">+256 791 635 064</a></p>
+    <p>📸 Instagram: <a href="https://instagram.com/jijisorganichair">@jijisorganichair</a></p>
+  </section>
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 15px;
-  font-weight: 600;
-}
+  <footer>
+    <p>&copy; 2025 Jiji's Organics. All rights reserved.</p>
+  </footer>
 
-.hero p {
-  font-size: 1.3rem;
-  margin-bottom: 25px;
-}
+  <a href="https://wa.me/256791635064" class="whatsapp-float" target="_blank">
+    <img src="whatsapp-icon.png" alt="Chat with us" />
+  </a>
 
-.cta-button {
-  background-color: #0b8f5d;
-  color: white;
-  padding: 14px 28px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background 0.3s ease;
-}
+  <script>
+    function makePayment() {
+      FlutterwaveCheckout({
+        public_key: "FLWPUBK_TEST-xxxxxxxxxxxxxxxxxxxxxxx",
+        tx_ref: "jiji-oil-" + Date.now(),
+        amount: 25000,
+        currency: "UGX",
+        payment_options: "mobilemoneyuganda",
+        customer: {
+          email: "customer@email.com",
+          phone_number: "256000000000",
+          name: "Customer Name",
+        },
+        customizations: {
+          title: "Jiji's Organic Hair Oil",
+          description: "Purchase of Original Organic Hair Oil",
+          logo: "logo.png",
+        },
+        callback: function (data) {
+          alert("Payment complete! Tx ID: " + data.transaction_id);
+        },
+        onclose: function() {
+          console.log("Payment closed");
+        },
+      });
+    }
+  </script>
 
-.cta-button:hover {
-  background-color: #097a4e;
-}
-
-/* --- SECTIONS --- */
-section {
-  padding: 60px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-h2 {
-  text-align: center;
-  font-size: 2rem;
-  color: #0b8f5d;
-  margin-bottom: 30px;
-}
-
-/* --- ABOUT --- */
-.about p {
-  font-size: 1.1rem;
-  text-align: center;
-  max-width: 800px;
-  margin: auto;
-}
-
-/* --- PRODUCTS --- */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  margin-top: 40px;
-}
-
-.product {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease;
-}
-
-.product:hover {
-  transform: translateY(-5px);
-}
-
-.product img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-
-.product h3 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-}
-
-.product p {
-  font-size: 0.95rem;
-  color: #555;
-}
-
-.product strong {
-  display: block;
-  margin-top: 10px;
-  font-size: 1.1rem;
-  color: #0b8f5d;
-}
-
-.product button {
-  margin-top: 10px;
-  background-color: #0b8f5d;
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background 0.3s ease;
-}
-
-.product button:hover {
-  background-color: #097a4e;
-}
-
-/* --- TESTIMONIALS --- */
-.testimonials {
-  background: #ffffff;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.testimonial {
-  max-width: 600px;
-  margin: 20px auto;
-  font-style: italic;
-  color: #444;
-}
-
-/* --- BEFORE & AFTER --- */
-.before-after {
-  text-align: center;
-}
-
-.photo-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.photo-grid img {
-  max-width: 300px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
-
-/* --- INGREDIENTS --- */
-.ingredient-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 30px;
-}
-
-.ingredient-grid div {
-  text-align: center;
-  max-width: 120px;
-}
-
-.ingredient-grid img {
-  width: 80px;
-  margin-bottom: 10px;
-}
-
-/* --- CONTACT --- */
-.contact p {
-  font-size: 1.1rem;
-  text-align: center;
-}
-
-/* --- FOOTER --- */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #e7f3ef;
-  color: #555;
-  font-size: 0.95rem;
-}
-
-/* --- WHATSAPP FLOATING BUTTON --- */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 100;
-  width: 50px;
-  height: 50px;
-  }
+</body>
+</html>
