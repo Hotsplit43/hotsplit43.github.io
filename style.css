@@ -47,7 +47,7 @@ nav a:hover {
   background-image: url('hero-bg.jpg'); /* Replace with your hero background */
   background-size: cover;
   background-position: center;
-  color: white;
+  color: green;
   text-align: center;
   padding: 100px 20px;
 }
